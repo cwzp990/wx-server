@@ -1,13 +1,11 @@
 const Koa = require('koa')
-const Router = require('koa-router')
+const book = require('./api/v1/book')
+const classic = require('./api/v1/classic')
 
 const app = new Koa()
-const router = new Router()
 
-router.get('/', ctx => {
-  ctx.body = '主页'
-})
-
-app.use(router.routes())
+// 需要将路由拆分
+app.use(book.routes())
+app.use(classic.routes())
 
 app.listen(3000)
