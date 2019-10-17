@@ -1,11 +1,8 @@
 const Koa = require('koa')
-const book = require('./api/v1/book')
-const classic = require('./api/v1/classic')
+const InitManager = require('./core/init')
 
 const app = new Koa()
 
-// 需要将路由拆分
-app.use(book.routes())
-app.use(classic.routes())
+InitManager.initCore(app) // 初始化路由
 
 app.listen(3000)
