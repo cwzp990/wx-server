@@ -1,22 +1,24 @@
 const requireDirectory = require('require-directory')
 const Router = require('koa-router')
 
-class InitManager {
-  static initCore (app) {
-    InitManager.app = app
-    InitManager.initLoadRouters()
+class InitMananger {
+  static initCore(app) {
+    InitMananger.app = app
+    InitMananger.initLoadRouters()
   }
+
   static initLoadRouters () {
-    // 导入目录下的所有模块
-    const apiDirector = `${process.cwd()}/api`
-    requireDirectory(module, apiDirector, {
-      visit: obj => { //  回调函数
-        if (obj instanceof Router) {
-          InitManager.app.use(obj.routes())
-        }
-      }
+    const apiDirectory = `${process.cwd()}/app/api-v1`
+    requireDirectory(module, apiDirectory, {
+      visit: whenLoadModule
     })
+
+    function whenLoadModule (obj)  {
+      if (obj instanceof Router) {
+        InitMananger.app.use(obj.routes)
+      }
+    }
   }
 }
 
-module.exports = InitManager
+module.exports = InitMananger
