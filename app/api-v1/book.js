@@ -2,9 +2,9 @@ const Router = require('koa-router')
 
 const router = new Router()
 
-router.get('/v1/book/hot_list', async (ctx, next) => {
+router.post('/v1/:id/book/hot_list', async (ctx, next) => {
   ctx.body = {
-    key: 'book'
+    key: 1
   }
 })
 

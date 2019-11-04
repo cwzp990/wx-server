@@ -2,7 +2,7 @@ const requireDirectory = require('require-directory')
 const Router = require('koa-router')
 
 class InitMananger {
-  static initCore(app) {
+  static initCore (app) {
     InitMananger.app = app
     InitMananger.initLoadRouters()
   }
@@ -13,7 +13,8 @@ class InitMananger {
       visit: whenLoadModule
     })
 
-    function whenLoadModule (obj)  {
+
+    function whenLoadModule (obj) {
       if (obj instanceof Router) {
         InitMananger.app.use(obj.routes)
       }

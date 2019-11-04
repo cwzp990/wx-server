@@ -1,9 +1,9 @@
 module.exports = {
   datebase: {
-    dbname: 'sql',
-    host: 'localost',
+    dbname: 'server',
+    host: '127.0.0.1',
     port: 3306,
     user: 'root',
-    password: '123456'
+    password: 'cwz100812'
   }
 }
