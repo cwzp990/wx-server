@@ -32,7 +32,7 @@ class RegisterValidator extends LinValidator {
   }
 }
 
-validatePassword(vals) {
+function validatePassword (vals) {
   const psw1 = vals.body.password1
   const psw2 = vals.body.password2
 
