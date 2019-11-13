@@ -8,16 +8,15 @@ const router = new Router({
 })
 
 router.post('/register', async ctx => {
-  const v = new RegisterValidator().validate(ctx)
-
-  // 将数据保存到数据库
-  const user = {
-    email: v.get('body.email'),
-    password: v.get('body.password2'),
-    nickname: v.get('body.nickname'),
+  ctx.body = {
+    msg: 'success'
   }
 
-  User.create(user)
+  User.create({
+    nickname: 'cwzp990',
+    password: '123456',
+    email: 'cwzp990@163.com'
+  })
 })
 
 module.exports = router
