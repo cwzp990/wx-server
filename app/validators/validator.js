@@ -1,4 +1,4 @@
-const { LinValidator, Rule } = require('../../core/lin-validator2')
+const { LinValidator, Rule } = require('../../core/lin-validator')
 
 class PositiveIntegerValidator extends LinValidator {
   constructor() {
